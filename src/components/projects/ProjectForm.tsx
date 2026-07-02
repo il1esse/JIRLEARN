@@ -19,7 +19,7 @@ export function ProjectForm() {
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Nom du nouveau projet"
-        className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none"
+        className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500"
       />
       <button
         type="submit"

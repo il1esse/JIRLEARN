@@ -16,11 +16,11 @@ export function TaskCard({ task, onOpen }: TaskCardProps) {
     <button
       type="button"
       onClick={() => onOpen(task)}
-      className="flex w-full flex-col gap-2 rounded-md border border-gray-200 bg-white p-3 text-left shadow-sm hover:border-indigo-300 hover:shadow"
+      className="flex w-full flex-col gap-2 rounded-md border border-gray-200 bg-white p-3 text-left shadow-sm hover:border-indigo-300 hover:shadow dark:border-gray-800 dark:bg-gray-900 dark:hover:border-indigo-700"
     >
-      <p className="text-sm font-medium text-gray-900">{task.title}</p>
+      <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{task.title}</p>
       {task.description && (
-        <p className="line-clamp-2 text-xs text-gray-500">{task.description}</p>
+        <p className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">{task.description}</p>
       )}
       {taskTags.length > 0 && (
         <div className="flex flex-wrap gap-1">
@@ -37,13 +37,13 @@ export function TaskCard({ task, onOpen }: TaskCardProps) {
       )}
       {progress.total > 0 && (
         <div className="flex items-center gap-2">
-          <div className="h-1.5 flex-1 rounded-full bg-gray-100">
+          <div className="h-1.5 flex-1 rounded-full bg-gray-100 dark:bg-gray-800">
             <div
               className="h-1.5 rounded-full bg-indigo-500"
               style={{ width: `${progress.percent}%` }}
             />
           </div>
-          <span className="text-[10px] text-gray-500">{progress.ratioLabel}</span>
+          <span className="text-[10px] text-gray-500 dark:text-gray-400">{progress.ratioLabel}</span>
         </div>
       )}
     </button>

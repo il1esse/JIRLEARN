@@ -18,7 +18,7 @@ export function BacklogPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-xl font-semibold text-gray-900">Backlog</h1>
+      <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">Backlog</h1>
       <BacklogView projectId={activeProjectId} />
     </div>
   );

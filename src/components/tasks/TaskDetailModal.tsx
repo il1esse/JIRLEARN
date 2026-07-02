@@ -42,33 +42,33 @@ export function TaskDetailModal({ task, onClose }: TaskDetailModalProps) {
     <Modal title="Détail de la tâche" onClose={onClose}>
       <div className="flex flex-col gap-4">
         <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">Titre</label>
+          <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Titre</label>
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             onBlur={handleBlurSave}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">Description</label>
+          <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             onBlur={handleBlurSave}
             rows={3}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
           />
         </div>
         <div className="flex items-center gap-3">
-          <label className="text-sm font-medium text-gray-700">Statut</label>
+          <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Statut</label>
           <StatusSelect value={task.status} onChange={(status) => setTaskStatus(task.id, status)} />
           {task.subtasks.length > 0 && (
-            <span className="text-xs text-gray-500">Sous-tâches : {progress.ratioLabel} terminées</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400">Sous-tâches : {progress.ratioLabel} terminées</span>
           )}
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">Tags</label>
+          <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Tags</label>
           <TagPicker
             allTags={tags}
             selectedTagIds={task.tagIds}
@@ -77,7 +77,7 @@ export function TaskDetailModal({ task, onClose }: TaskDetailModalProps) {
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">Sous-tâches</label>
+          <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Sous-tâches</label>
           <SubtaskList
             subtasks={task.subtasks}
             onAdd={(subtaskTitle) => addSubtask(task.id, subtaskTitle)}
@@ -89,7 +89,7 @@ export function TaskDetailModal({ task, onClose }: TaskDetailModalProps) {
           <button
             type="button"
             onClick={handleDelete}
-            className="rounded-md border border-red-200 px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+            className="rounded-md border border-red-200 px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:border-red-900 dark:text-red-400 dark:hover:bg-red-950"
           >
             Supprimer la tâche
           </button>

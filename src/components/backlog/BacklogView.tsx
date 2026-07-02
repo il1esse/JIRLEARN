@@ -32,7 +32,7 @@ export function BacklogView({ projectId }: { projectId: string }) {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="text-sm text-gray-500">Aucune tâche ne correspond aux filtres.</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Aucune tâche ne correspond aux filtres.</p>
       ) : (
         <div className="flex flex-col gap-2">
           {filtered.map((task) => (

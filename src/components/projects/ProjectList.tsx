@@ -35,17 +35,17 @@ export function ProjectList() {
 
   if (projects.length === 0) {
     return (
-      <p className="text-sm text-gray-500">Aucun projet pour l'instant. Crée le premier ci-dessus.</p>
+      <p className="text-sm text-gray-500 dark:text-gray-400">Aucun projet pour l'instant. Crée le premier ci-dessus.</p>
     );
   }
 
   return (
-    <ul className="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white">
+    <ul className="divide-y divide-gray-200 rounded-md border border-gray-200 bg-white dark:divide-gray-800 dark:border-gray-800 dark:bg-gray-900">
       {projects.map((project) => (
         <li
           key={project.id}
           className={`flex items-center justify-between px-4 py-3 ${
-            project.id === activeProjectId ? "bg-indigo-50" : ""
+            project.id === activeProjectId ? "bg-indigo-50 dark:bg-indigo-950/40" : ""
           }`}
         >
           {editingId === project.id ? (
@@ -55,13 +55,13 @@ export function ProjectList() {
               onChange={(e) => setEditingName(e.target.value)}
               onBlur={() => commitRename(project.id)}
               onKeyDown={(e) => e.key === "Enter" && commitRename(project.id)}
-              className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-sm"
+              className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
             />
           ) : (
             <button
               type="button"
               onClick={() => handleSelect(project.id)}
-              className="flex-1 text-left text-sm font-medium text-gray-900 hover:text-indigo-600"
+              className="flex-1 text-left text-sm font-medium text-gray-900 hover:text-indigo-600 dark:text-gray-100 dark:hover:text-indigo-400"
             >
               {project.name}
             </button>
@@ -70,14 +70,14 @@ export function ProjectList() {
             <button
               type="button"
               onClick={() => startEditing(project.id, project.name)}
-              className="text-gray-500 hover:text-indigo-600"
+              className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400"
             >
               Renommer
             </button>
             <button
               type="button"
               onClick={() => handleDelete(project.id)}
-              className="text-gray-500 hover:text-red-600"
+              className="text-gray-500 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400"
             >
               Supprimer
             </button>

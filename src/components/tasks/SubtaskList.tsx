@@ -22,14 +22,14 @@ export function SubtaskList({ subtasks, onAdd, onStatusChange, onDelete }: Subta
 
   return (
     <div className="flex flex-col gap-2">
-      {subtasks.length === 0 && <p className="text-xs text-gray-400">Aucune sous-tâche.</p>}
+      {subtasks.length === 0 && <p className="text-xs text-gray-400 dark:text-gray-500">Aucune sous-tâche.</p>}
       <ul className="flex flex-col gap-1">
         {subtasks.map((subtask) => (
           <li
             key={subtask.id}
-            className="flex items-center justify-between rounded-md border border-gray-200 px-2 py-1"
+            className="flex items-center justify-between rounded-md border border-gray-200 px-2 py-1 dark:border-gray-700"
           >
-            <span className="text-sm text-gray-800">{subtask.title}</span>
+            <span className="text-sm text-gray-800 dark:text-gray-200">{subtask.title}</span>
             <div className="flex items-center gap-2">
               <StatusSelect
                 value={subtask.status}
@@ -38,7 +38,7 @@ export function SubtaskList({ subtasks, onAdd, onStatusChange, onDelete }: Subta
               <button
                 type="button"
                 onClick={() => onDelete(subtask.id)}
-                className="text-xs text-gray-400 hover:text-red-600"
+                className="text-xs text-gray-400 hover:text-red-600 dark:text-gray-500 dark:hover:text-red-400"
               >
                 Supprimer
               </button>
@@ -51,11 +51,11 @@ export function SubtaskList({ subtasks, onAdd, onStatusChange, onDelete }: Subta
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Nouvelle sous-tâche"
-          className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-sm"
+          className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500"
         />
         <button
           type="submit"
-          className="rounded-md border border-gray-300 px-3 py-1 text-sm hover:bg-gray-50"
+          className="rounded-md border border-gray-300 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:text-gray-100 dark:hover:bg-gray-800"
         >
           Ajouter
         </button>

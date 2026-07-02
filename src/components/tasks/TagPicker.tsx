@@ -40,7 +40,7 @@ export function TagPicker({ allTags, selectedTagIds, onAdd, onRemove }: TagPicke
             </button>
           </span>
         ))}
-        {selectedTags.length === 0 && <span className="text-xs text-gray-400">Aucun tag</span>}
+        {selectedTags.length === 0 && <span className="text-xs text-gray-400 dark:text-gray-500">Aucun tag</span>}
       </div>
       <form onSubmit={handleAdd} className="flex gap-2">
         <input
@@ -48,7 +48,7 @@ export function TagPicker({ allTags, selectedTagIds, onAdd, onRemove }: TagPicke
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ajouter un tag (créé si inexistant)"
           list="existing-tags"
-          className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-sm"
+          className="flex-1 rounded-md border border-gray-300 px-2 py-1 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500"
         />
         <datalist id="existing-tags">
           {allTags.map((tag) => (
@@ -57,7 +57,7 @@ export function TagPicker({ allTags, selectedTagIds, onAdd, onRemove }: TagPicke
         </datalist>
         <button
           type="submit"
-          className="rounded-md border border-gray-300 px-3 py-1 text-sm hover:bg-gray-50"
+          className="rounded-md border border-gray-300 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:text-gray-100 dark:hover:bg-gray-800"
         >
           Ajouter
         </button>

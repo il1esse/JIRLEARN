@@ -18,7 +18,7 @@ export function BoardPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-xl font-semibold text-gray-900">Board</h1>
+      <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">Board</h1>
       <BoardView projectId={activeProjectId} />
     </div>
   );

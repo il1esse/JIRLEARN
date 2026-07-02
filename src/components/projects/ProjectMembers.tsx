@@ -45,21 +45,21 @@ export function ProjectMembers({ projectId }: { projectId: string }) {
   };
 
   return (
-    <div className="rounded-md border border-gray-200 bg-white p-4">
-      <h2 className="text-sm font-semibold text-gray-900">Membres du projet</h2>
-      <ul className="mt-3 divide-y divide-gray-100">
+    <div className="rounded-md border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
+      <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Membres du projet</h2>
+      <ul className="mt-3 divide-y divide-gray-100 dark:divide-gray-800">
         {members.map((member) => (
           <li key={member.userId} className="flex items-center justify-between py-2 text-sm">
-            <span className="text-gray-700">
-              {member.user.name} <span className="text-gray-400">({member.user.email})</span>
+            <span className="text-gray-700 dark:text-gray-300">
+              {member.user.name} <span className="text-gray-400 dark:text-gray-500">({member.user.email})</span>
             </span>
             <div className="flex items-center gap-3">
-              <span className="text-xs uppercase text-gray-400">{member.role}</span>
+              <span className="text-xs uppercase text-gray-400 dark:text-gray-500">{member.role}</span>
               {isOwner && member.role !== "OWNER" && (
                 <button
                   type="button"
                   onClick={() => handleRemove(member.userId)}
-                  className="text-xs text-gray-500 hover:text-red-600"
+                  className="text-xs text-gray-500 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400"
                 >
                   Retirer
                 </button>
@@ -75,7 +75,7 @@ export function ProjectMembers({ projectId }: { projectId: string }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email à inviter"
-            className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none"
+            className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500"
           />
           <button
             type="submit"
@@ -86,7 +86,7 @@ export function ProjectMembers({ projectId }: { projectId: string }) {
           </button>
         </form>
       )}
-      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{error}</p>}
     </div>
   );
 }

@@ -11,7 +11,7 @@ export function BacklogFilters() {
       <select
         value={filters.status}
         onChange={(e) => setFilters({ status: e.target.value as typeof filters.status })}
-        className="rounded-md border border-gray-300 px-3 py-1.5 text-sm"
+        className="rounded-md border border-gray-300 px-3 py-1.5 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
       >
         <option value="all">Tous les statuts</option>
         {STATUSES.map((status) => (
@@ -23,7 +23,7 @@ export function BacklogFilters() {
       <select
         value={filters.tagId}
         onChange={(e) => setFilters({ tagId: e.target.value })}
-        className="rounded-md border border-gray-300 px-3 py-1.5 text-sm"
+        className="rounded-md border border-gray-300 px-3 py-1.5 text-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
       >
         <option value="all">Tous les tags</option>
         {tags.map((tag) => (

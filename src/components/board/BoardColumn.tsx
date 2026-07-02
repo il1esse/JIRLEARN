@@ -22,11 +22,11 @@ export function BoardColumn({ status, tasks, onOpenTask, onDropTask }: BoardColu
     <div
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
-      className="flex min-h-[300px] w-full flex-col gap-2 rounded-md bg-gray-100 p-3"
+      className="flex min-h-[300px] w-full flex-col gap-2 rounded-md bg-gray-100 p-3 dark:bg-gray-900"
     >
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-gray-700">{label}</h3>
-        <span className="text-xs text-gray-400">{tasks.length}</span>
+        <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">{label}</h3>
+        <span className="text-xs text-gray-400 dark:text-gray-500">{tasks.length}</span>
       </div>
       <div className="flex flex-col gap-2">
         {tasks.map((task) => (
