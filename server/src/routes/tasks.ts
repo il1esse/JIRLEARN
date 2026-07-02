@@ -9,7 +9,8 @@ export const projectTasksRouter = Router({ mergeParams: true });
 export const taskRouter = Router();
 
 projectTasksRouter.use(requireAuth, requireProjectMember);
-taskRouter.use(requireAuth, requireTaskMember);
+taskRouter.use(requireAuth);
+taskRouter.use("/:id", requireTaskMember);
 
 projectTasksRouter.get("/", async (req, res) => {
   const projectId = (req.params as Record<string, string>).projectId;
