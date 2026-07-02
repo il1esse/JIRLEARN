@@ -1,7 +1,10 @@
 import { Router } from "express";
 import { prisma } from "../lib/prisma";
+import { requireAuth } from "../middleware/auth";
 
 export const tagsRouter = Router();
+
+tagsRouter.use(requireAuth);
 
 const PALETTE = [
   "#ef4444",

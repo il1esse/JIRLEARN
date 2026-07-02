@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { useProjectStore } from "../store/useProjectStore";
 import { ProjectForm } from "../components/projects/ProjectForm";
 import { ProjectList } from "../components/projects/ProjectList";
+import { ProjectMembers } from "../components/projects/ProjectMembers";
 
 export function ProjectsPage() {
   const loadProjects = useProjectStore((state) => state.loadProjects);
+  const activeProjectId = useProjectStore((state) => state.activeProjectId);
 
   useEffect(() => {
     loadProjects();
@@ -18,6 +20,7 @@ export function ProjectsPage() {
       </div>
       <ProjectForm />
       <ProjectList />
+      {activeProjectId && <ProjectMembers projectId={activeProjectId} />}
     </div>
   );
 }

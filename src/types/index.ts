@@ -40,3 +40,17 @@ export interface Project {
   createdAt: string;
   updatedAt: string;
 }
+
+export type ProjectRole = "OWNER" | "MEMBER";
+
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+}
+
+export interface ProjectMember {
+  userId: string;
+  role: ProjectRole;
+  user: User;
+}

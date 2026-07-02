@@ -1,4 +1,4 @@
-import type { Subtask, Tag, Task } from "@prisma/client";
+import type { Subtask, Tag, Task, User } from "@prisma/client";
 
 type TaskWithRelations = Task & { tags: Tag[]; subtasks: Subtask[] };
 
@@ -8,3 +8,8 @@ export function serializeTask(task: TaskWithRelations) {
 }
 
 export const taskInclude = { tags: true, subtasks: true } as const;
+
+export function serializeUser(user: User) {
+  const { passwordHash: _passwordHash, ...rest } = user;
+  return rest;
+}

@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useProjectStore } from "../../store/useProjectStore";
+import { useAuthStore } from "../../store/useAuthStore";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `px-3 py-2 rounded-md text-sm font-medium ${
@@ -10,6 +11,14 @@ export function Header() {
   const activeProject = useProjectStore((state) =>
     state.projects.find((p) => p.id === state.activeProjectId),
   );
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <header className="border-b border-gray-200 bg-white">
@@ -20,7 +29,7 @@ export function Header() {
             <span className="text-sm text-gray-500">/ {activeProject.name}</span>
           )}
         </div>
-        <nav className="flex gap-1">
+        <nav className="flex items-center gap-1">
           <NavLink to="/" end className={navLinkClass}>
             Projets
           </NavLink>
@@ -30,6 +39,16 @@ export function Header() {
           <NavLink to="/board" className={navLinkClass}>
             Board
           </NavLink>
+          <div className="ml-4 flex items-center gap-3 border-l border-gray-200 pl-4">
+            {user && <span className="text-sm text-gray-600">{user.name}</span>}
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="text-sm font-medium text-gray-500 hover:text-red-600"
+            >
+              Déconnexion
+            </button>
+          </div>
         </nav>
       </div>
     </header>

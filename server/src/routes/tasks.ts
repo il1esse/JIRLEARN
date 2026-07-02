@@ -2,9 +2,14 @@ import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { serializeTask, taskInclude } from "../lib/serialize";
 import { findOrCreateTag } from "./tags";
+import { requireAuth } from "../middleware/auth";
+import { requireProjectMember, requireTaskMember } from "../middleware/projectAccess";
 
 export const projectTasksRouter = Router({ mergeParams: true });
 export const taskRouter = Router();
+
+projectTasksRouter.use(requireAuth, requireProjectMember);
+taskRouter.use(requireAuth, requireTaskMember);
 
 projectTasksRouter.get("/", async (req, res) => {
   const projectId = (req.params as Record<string, string>).projectId;

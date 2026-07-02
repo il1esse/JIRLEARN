@@ -4,6 +4,7 @@ import cors from "cors";
 import { projectsRouter } from "./routes/projects";
 import { tagsRouter } from "./routes/tags";
 import { projectTasksRouter, taskRouter } from "./routes/tasks";
+import { authRouter } from "./routes/auth";
 
 const app = express();
 
@@ -14,6 +15,7 @@ const allowedOrigins = (process.env.CORS_ORIGIN ?? "http://localhost:5173")
 app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
+app.use("/api/auth", authRouter);
 app.use("/api/projects/:projectId/tasks", projectTasksRouter);
 app.use("/api/projects", projectsRouter);
 app.use("/api/tasks", taskRouter);
